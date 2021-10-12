@@ -32,14 +32,13 @@ class LinkedList:
             self.tail.setNext(newNode)
             self.tail = newNode
 
-        # Set the newly created Node's next pointer to None, since it's now the last entry
         self.length += 1
 
 
     def removeBack (self):
         # Since we're using a tail Node in the Linked List class, this is super easy and becomes an O(1) operation
 
-        # Check to see if the list is empty - nothing to do here if it is
+        # Check to see if the list is empty
         if self.length == 0:
             raise IndexError
 
@@ -59,7 +58,7 @@ class LinkedList:
 
 
     def insertFront (self, value):
-        # This is an O(1) operation
+        # This is an O(1) operation, since we always keep track of the head
 
         newNode : Node = Node(value)        
 
@@ -78,7 +77,7 @@ class LinkedList:
 
 
     def removeFront (self):
-        # This is an O(1) operation
+        # This is an O(1) operation, since we always keep track of the head
 
         # Check if the list is empty
         if self.length == 0:
@@ -93,7 +92,7 @@ class LinkedList:
     def getValueAt (self, index : int):
         # Since the list needs to be traversed to get the specified index, this is an O(n) operation
 
-        # Make sure None is returned if the list is empty
+        # Raise an error if the list is empty or if the specified index is out of bounds
         if (self.length == 0) or (index > (self.length - 1)):
             raise IndexError
 
@@ -115,7 +114,6 @@ class LinkedList:
         if (index > (self.length - 1)) or (self.length == 0):
             raise IndexError
 
-        # This stuff is fine
         else:
             current : Node = self.head
             counter : int = 0
@@ -128,7 +126,9 @@ class LinkedList:
 
 
     def search (self, value) -> bool:
-        # Returns first instance of specified value
+        # Returns True if at least one instance of the specified value is found
+        # Could also make a version of this method that returns an integer that counts all matched values...
+        
         # Since the list needs to be traversed to get the specified index, this is an O(n) operation
         
         if self.length == 0:
