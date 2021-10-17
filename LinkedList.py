@@ -1,4 +1,4 @@
-""" Egg's Linked List Implementation """
+""" Egg's Singly Linked List Implementation """
 
 from Node import *
 
@@ -19,7 +19,7 @@ class LinkedList:
         # Since we're using a tail Node in the Linked List class, this is super easy and becomes an O(1) operation
 
         # Make a shiny new Node and pass it the desired value
-        newNode : Node = Node(value)
+        newNode = Node(value)
 
         # Check if the list is empty and assign the value to the head, which will also be the tail in this case
         if self.length == 0:
@@ -43,7 +43,7 @@ class LinkedList:
             raise IndexError
 
         else:
-            current : Node = self.head
+            current = self.head
 
             # Traverse through the list until the second last Node is found
             while current.getNext().getNext() is not None:
@@ -60,7 +60,7 @@ class LinkedList:
     def insertFront (self, value):
         # This is an O(1) operation, since we always keep track of the head
 
-        newNode : Node = Node(value)        
+        newNode = Node(value)        
 
         # Check if the list is empty and assign the value to the head, which will also be the tail in this case
         if self.length == 0:
@@ -97,8 +97,8 @@ class LinkedList:
             raise IndexError
 
         else:
-            current : Node = self.head
-            counter : int = 0
+            current  = self.head
+            counter  = 0
 
             while counter != index:
                 current = current.getNext()
@@ -115,8 +115,8 @@ class LinkedList:
             raise IndexError
 
         else:
-            current : Node = self.head
-            counter : int = 0
+            current  = self.head
+            counter = 0
 
             while counter != index:
                 current = current.getNext()
@@ -135,7 +135,7 @@ class LinkedList:
             return False
 
         else:
-            current : Node = self.head
+            current = self.head
 
             while current is not None:
                 if current.getValue() == value:
@@ -155,8 +155,8 @@ class LinkedList:
             return
         
         else:
-            current : Node = self.head
-            indexCount : int = 0
+            current = self.head
+            indexCount = 0
             print("List length: " + str(self.length))
 
             while current is not None:
@@ -172,7 +172,7 @@ class LinkedList:
             raise IndexError
 
         # Make a shiny new Node
-        newNode : Node = Node(value)
+        newNode = Node(value)
 
         # Check if the list is empty
         if (self.length == 0) and (index == 0):
@@ -180,9 +180,9 @@ class LinkedList:
             self.tail = newNode
 
         else:
-            current : Node = self.head
-            prev : Node = None
-            counter : int = 0
+            current = self.head
+            prev = None
+            counter = 0
 
             while counter != index:
                 prev = current
@@ -194,6 +194,7 @@ class LinkedList:
         
         self.length += 1
 
+
     def removeAt (self, index : int):
         # This is an O(n) operation, because the list up to the removal index needs to be traversed
 
@@ -201,9 +202,9 @@ class LinkedList:
             raise IndexError
         
         else:
-            current : Node = self.head
-            prev : Node = None
-            counter : int  = 0
+            current = self.head
+            prev = None
+            counter = 0
 
             while counter != index:
                 prev = current
