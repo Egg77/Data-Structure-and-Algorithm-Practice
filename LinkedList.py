@@ -15,11 +15,11 @@ class LinkedList:
         return self.length
 
 
-    def add (self, value):
+    def add (self, value, key : int = 0):
         # Since we're using a tail Node in the Linked List class, this is super easy and becomes an O(1) operation
 
         # Make a shiny new Node and pass it the desired value
-        newNode = Node(value)
+        newNode = Node(value, key)
 
         # Check if the list is empty and assign the value to the head, which will also be the tail in this case
         if self.length == 0:
@@ -147,6 +147,25 @@ class LinkedList:
             return False
 
 
+    def searchKey (self, key : int):
+        # Searches each node for a specified key, returns the value associated with that node
+        # Made specifically for the Hash practice implementation
+
+        if self.length == 0:
+            return -1
+        
+        else:
+            current = self.head
+
+            while current is not None:
+                if current.getKey() == key:
+                    return current.getValue()
+                else:
+                    current = current.getNext()
+        
+        return -1
+
+
     def printList (self):
         # This is an O(n) operation, because it's literally printing the entire list
 
@@ -216,11 +235,36 @@ class LinkedList:
 
             # And current is set adrift to await garbage collection...
 
+
+    def removeAtKey (self, key : int):
+        # This is an O(n) operation, because the list up to the removal key needs to be traversed
+
+        if self.searchKey(key) == -1:
+            return -1
+        
+        else:
+            current = self.head
+
+            if current.getKey() == key:
+                self.removeFront()
+            
+            else:
+                prev = None
+
+                print(current.getKey())
+                print(key)
+
+                while current.getKey() != key:
+                    prev = current
+                    current = current.getNext()
+                
+                prev.setNext(current.getNext())
+
+            self.length -= 1
+
+        # And current is set adrift to await garbage collection...
+
 """  
-"Too lazy to do it now because it's not that useful, but still doable" Mode:
-
-    - Remove by Value!
-
     Hard Mode:
 
     - Reverse!

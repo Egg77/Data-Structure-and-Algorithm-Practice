@@ -1,8 +1,9 @@
 """This is the most generic, reusable Node possible. Lots of different names for the same thing - references to different Nodes. Arguably not the most space-efficient, but whatever. This is to facilitate frictionless learning and keep my other modules less cluttered with extra classes."""
 
 class Node:
-    def __init__ (self, value):
+    def __init__ (self, value, key : int = 0):
         self.value = value
+        self.key = key
         self.next = None
         self.prev = None
         self.left = None
@@ -13,6 +14,12 @@ class Node:
 
     def setValue (self, value):
         self.value = value
+
+    def getKey (self) -> int:
+        return self.key
+    
+    def setKey (self, key):
+        self.key = key
     
     def getNext (self):
         return self.next
