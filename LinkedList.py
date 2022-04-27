@@ -1,5 +1,14 @@
 """ Egg's Singly Linked List Implementation """
 
+"""  
+    @TODO:
+    - Swap two nodes
+    - Reverse
+    - Sort using some method I haven't learned yet!
+    - Sort using some other sorting method I haven't learned yet!
+
+"""
+
 from Node import *
 
 class LinkedList:
@@ -148,8 +157,8 @@ class LinkedList:
 
 
     def searchKey (self, key : int):
-        # Searches each node for a specified key, returns the value associated with that node
-        # Made specifically for the Hash practice implementation
+        # Searches each node for a specified key, returns the value associated with that node.
+        # Made specifically for the Hash practice implementation.
 
         if self.length == 0:
             return -1
@@ -263,12 +272,3 @@ class LinkedList:
             self.length -= 1
 
         # And current is set adrift to await garbage collection...
-
-"""  
-    Hard Mode:
-
-    - Reverse!
-    - Sort using some method I haven't learned yet!
-    - Sort using some other sorting method I haven't learned yet!
-
-"""

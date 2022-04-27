@@ -26,6 +26,7 @@ class Heap:
         b = temp
     
     # And here's the main event:
+    # I seriously have no idea what's going on yet... gotta pen and paper this!
 
     def insert (self, key: int):
 

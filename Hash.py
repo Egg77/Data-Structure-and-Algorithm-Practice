@@ -17,7 +17,6 @@ class Hash:
 
         for _ in range (100):
             self.array.append(LinkedList())
-
     
     def hashFunction(self, key : int) -> int:
 
